@@ -1,0 +1,28 @@
+@use "../../global" as g;
+.p-404 {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding : 40px 0 80px;
+    background-color :g.$color-main-background;
+    position:relative;
+    z-index : 1;
+}
+.p-404__inner {
+    width: 100%;
+    max-width: min( calc(100% - 40px ), g.$layout-width-inner );
+    margin-top : 40px;
+    background-color: g.$color-white;
+    border-radius: 4px;;
+}
+
+.p-404__content {
+    margin: 40px auto 40px;
+    max-width: min( calc(100% - 40px ), 400px );
+    padding: 10px 10px;
+    font-size: 16px;
+    font-weight: normal;
+    text-align: left;
+}

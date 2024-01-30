@@ -1,0 +1,354 @@
+@use "../global" as global;
+//--------------------------------
+//    about
+//--------------------------------
+.l-about {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    $bgcol : rgb(62, 97, 80);
+    &:before{
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 10px;
+        top: 0;
+        left: 0;
+        background-color : $bgcol;
+        z-index: 2;
+        clip-path: polygon(0 0, 100% 0%, 100% calc(100%), 0 calc(20%));
+    }
+}
+
+.l-about__background {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    opacity: 1;
+    top: 0;
+    z-index: -1;
+    //  初期状態を非表示にする
+    display:none;
+    &.disp{
+        display: block;
+    }
+}
+
+.l-about__fadewrapper {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin: auto;
+    margin-right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    z-index: 1;
+    padding: 40px 0 200px 0;
+    $bgcoll: lightgreen;
+    $bgcol: white;
+//    $bgcol: whitesmoke;//white;
+    //background: linear-gradient( to right, $bgcoll 0%, $bgcol 10%, $bgcol 100%, transparent 100%);
+//    background: linear-gradient( to right, transparent 0%, $bgcol 10%, $bgcol 90%, transparent 100%);
+    background:white;
+}
+
+.l-about__inner {
+    position: relative;
+    width: 100%;
+    padding-top: 60px;//100px;
+    height: auto;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-size: 20px;
+    $bgcol: transparent;
+    background: $bgcol;
+    overflow: hidden;
+}
+
+.l-about__lead {
+    margin-top: 80px;
+    font-size: clamp( 14px, 2vw, 20px);
+    font-weight: 400;
+    max-width: 1000px;
+    text-align: left;
+    width: fit-content;
+    display: flex;
+    flex-direction:column;
+    align-items:flex-start;
+    row-gap: 80px;
+    p{
+        font-size: 16px;
+    }
+}
+
+
+.l-about__leadblock {
+    position:relative;
+    width: 100%;
+    display: flex;
+    flex-direction : row;
+    align-items: center;
+    column-gap: 40px;
+    .l-about__leadtext {
+        width: 50%;
+        font-size: 16px;
+        font-family: global.$font-NotoSansJP;
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        a{
+            text-decoration: underline;
+            &:hover{
+                opacity:0.8;
+            }
+        }
+        b{
+            font-weight: bold;
+            font-size: 24px;
+        }
+        .gold{
+            color : goldenrod;
+        }
+        background-color : RGBA(255,255,255,0.9);
+        border-radius: 10px;
+        box-shadow: 6px 6px 10px 0px rgba(0, 0, 0, 0.1);
+        
+        padding: 20px 40px;
+        dl{
+            width :100%;
+            display: flex;
+            flex-direction : column;
+            gap: 8px;
+            div{
+                position : relative;
+                display: flex;
+                flex-direction : row;
+                &:nth-child(n+2){
+                    &:before{
+                        position : absolute;
+                        content : "";
+                        top : -4px;
+                        width: 100%;
+                        height: 1px;
+                        border-top : 1px solid lightgray;
+                    }
+                }
+                dt{
+                    width: 20%;
+                    font-weight: bold;
+                }
+                dd{
+                    width: 70%;
+                    text-align:left;
+                    margin-left : 16px;
+                }
+            }
+        }
+    }
+    .l-about__leadimage {
+        width: 50%;
+        img{
+            border-radius: 10px;
+            overflow: hidden;
+        }
+    }
+    &[data-side="left"]{
+        .l-about__leadtext {
+            order: 0;
+            margin-left: auto;
+            align-items:flex-end;
+            text-align: right;
+            transform: translate( 60px, 0 );
+        }
+        .l-about__leadimage {
+            order: 1;
+        }
+    }
+    &[data-side="right"]{
+        .l-about__leadtext {
+            order: 1;
+            align-items:flex-start;
+            text-align: left;
+            transform: translate( -60px, 0 );
+        }
+        .l-about__leadimage {
+            order: 0;
+        }
+        b{
+            text-align:left;
+        }
+    }
+    &[data-side="center"]{
+        flex-direction:column;
+        text-align:left;
+        justify-content:flex-start;
+        strong{
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+        p{
+            font-size: 18px;
+        }
+    }
+
+    &:nth-child(n+2){
+        &:before{
+            position:absolute;
+            content: "";
+            top: -40px; 
+            width: 100%;
+            height: 4px;
+            border-top : 2px dotted lightgreen;
+        }
+    }
+    video{
+        max-width: min(calc(100% - 40px), 640px );
+    }
+}
+
+
+.l-about__SNSwrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.l-about__button__wrapper {
+    position : relative;
+    width: 100%;
+    max-width: min( calc(100% - 40px ), 1200px );
+    margin :auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+//--------------------------------
+//  レスポンシブ
+//--------------------------------
+@include global.mq('sp-tab2') {
+    .l-about__inner {
+        flex-direction: column;
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+    .l-about__leadblock {
+        flex-direction : row;
+        align-items: center;
+        column-gap: 20px;
+        .l-about__leadtext {
+            font-size: 16px;
+        }
+        .l-about__leadimage {
+        }
+        &[data-side="center"]{
+            font-size: 16px;
+            b{
+                font-size: 20px;
+            }
+        }
+    }
+}
+
+@include global.mq('sp') {
+    .l-about__fadewrapper {
+        $bgcol: white;
+        background: $bgcol;
+    }
+    .l-about__inner {
+        width: 100%;
+    }
+    //  iphoneで強くスクロールすると後ろが見える為消す
+    .l-about__background {
+        display: none;
+    }
+    .l-about__lead {
+        max-width: calc( 100% - 24px );
+    }
+    .l-about__leadblock {
+        flex-direction : column;
+        align-items: center;
+        &[data-side="left"],
+        &[data-side="right"],
+        &[data-side="center"]{
+            .l-about__leadtext{
+                width: 100%;
+                max-width: calc(100% - 40px);
+                order : 1;
+                align-items:center;
+                margin: auto;
+                font-size: 16px;
+                text-align:left;
+                transform: translate( 0px, 0 );
+                padding: 0;
+                box-shadow:none;
+                br{
+                    display:none;
+                }
+                strong{
+                    text-align:center;
+                    br{
+                        display:inline-block;
+                    }
+                    margin-bottom: 20px;
+                }
+                dl{
+                    width: 100%;
+                    dt{
+                        text-align:right;
+                    }
+                }
+            }
+            .l-about__leadimage{
+                display: flex;
+                justify-content: center;
+                width: 100%;
+                order : 0;
+            }
+        }
+        &[data-side="center"]{
+            font-size: 16px;
+            p{
+                font-size: 16px;
+
+            }
+        }
+        column-gap: 0px;
+        row-gap:20px;
+    }
+
+    .l-about__SNSwrapper {
+        .c-icon {
+            &.s60 {
+                font-size: 48px;
+                width: 80px;
+            }
+        }
+    }
+    //--------------------------------
+    //  機種別
+    //--------------------------------
+    .iPhone {
+        .l-about__lead {
+            max-width: 320px;
+            //border: 1px solid red;
+        }
+    }
+    .Macintosh {
+        .l-about__lead {
+            max-width: 320px;
+            // border: 1px solid yellow;
+        }
+    }
+}

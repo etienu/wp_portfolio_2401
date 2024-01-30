@@ -1,0 +1,40 @@
+//
+@use "../../global" as global;
+.u-padding_ud10vw {
+    padding: 10vw 0px;
+} //
+.u-padding_ud40 {
+    padding: 40px 0px;
+}
+
+.u-padding_ud60 {
+    padding: 60px 0px;
+}
+
+//
+.u-padding_ud80 {
+    padding: 80px 0px;
+}
+
+//
+.u-padding_ud88 {
+    padding: 88px 0px;
+}
+
+//
+.u-padding_ud100 {
+    padding: 100px 0px;
+}
+
+//
+.u-padding_ud120 {
+    padding: 120px 0px;
+}
+
+//
+.u-padding_ud200 {
+    padding: 200px 0px;
+    @include global.mq('sp') {
+        //padding: 0;
+    }
+}

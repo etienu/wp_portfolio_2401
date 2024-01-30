@@ -1,0 +1,47 @@
+@use "../../global";
+
+/*--------------------------------------------------
+    FLOCSS - Object - Utility
+    u-font.scss
+    フォントのclass指定
+--------------------------------------------------*/
+
+.u-font-italic {
+    font-family: "Fira Sans", sans-serif;
+    font-style: italic;
+}
+
+.u-font-sans {
+    font-family: "Fira Sans", sans-serif;
+}
+
+//----------------------------------------
+//  太さ
+//----------------------------------------
+.weight100 {
+    font-weight: 100
+}
+
+.weight300 {
+    font-weight: 300
+}
+
+.weight400 {
+    font-weight: 400
+}
+
+.weight500 {
+    font-weight: 500
+}
+
+.weight600 {
+    font-weight: 600
+}
+
+.weight700 {
+    font-weight: 700
+}
+
+.weight900 {
+    font-weight: 900
+}

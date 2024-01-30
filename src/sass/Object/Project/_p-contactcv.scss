@@ -1,0 +1,144 @@
+@use "../../global" as global;
+//--------------------------------------------
+//
+//コンタクト・コンバージョンボタン
+//
+//--------------------------------------------
+.p-contactcv__button {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 400px;//1000px;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    text-align: left;
+    justify-content: center;
+    height: 100px;
+    $bgcol: global.$color-main-background-dark;
+    background: linear-gradient( to right, $bgcol 0%, $bgcol 100%);
+    border-radius : 40px;
+    transition: 0.3s;
+    cursor: pointer;
+    overflow:hidden;
+    
+    border-top : 2px solid $bgcol;
+    border-left : 2px solid $bgcol;
+    border-right : 2px solid $bgcol;
+    border-bottom : 2px solid $bgcol;
+
+    &:hover {
+        box-shadow: 0px 0px 8px rgba(255, 255, 255, 1);
+        border-top : 2px solid $bgcol;
+        border-left : 2px solid $bgcol;
+        border-right : 2px solid white;
+        border-bottom : 2px solid white;
+        transform : translate( 0, 2px );
+        .p-contactcv__button__bg {
+            width: 100%;
+        }
+        .lead-arrow {
+            transform: translate(4px, 0);
+        }
+    }
+}
+
+.p-contactcv__button__bg {
+    $bgcol: global.$color-main-background-dark;
+    //$bgcol: lightgreen;
+    position: absolute;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    $bgcolb : lightgreen;
+    //$bgcolb : gold;
+    background: linear-gradient( to right, $bgcolb 0%, $bgcol 80%, $bgcol 100%);
+    border-radius : 40px;
+    transition: 0.3s;
+}
+
+.p-contactcv__button__inner {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: left;
+    height: 100%;
+    z-index: 1;
+}
+
+.p-contactcv__mailicon {
+    width: fit-content;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    i {
+        margin: 20px;
+        color: white;
+        font-size: clamp( 50px, 8vw, 80px);
+    }
+}
+
+.p-contactcv__separate {
+    width: 4px;
+    height: calc(50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 20px;
+    margin: auto 20px;
+}
+
+.p-contactcv__lead {
+    width: fit-content;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    //justify-content: flex-start;//center;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    color: white;
+    font-size: clamp( 18px, 3vw, 20px);
+    font-weight: 300;
+    p {
+        text-align: left;
+    }
+    .lead-arrow {
+        transition: 0.3s;
+        margin-left: 20px;
+    }
+}
+
+//--------------------------------
+//  レスポンシブ
+//--------------------------------
+@include global.mq('sp') {
+    .p-contactcv__button {
+        height: auto;
+    }
+    .p-contactcv__button__bg {
+        height: 100%;
+        padding: 40px 0;
+    }
+    .p-contactcv__button__inner {
+        flex-direction: column;
+        padding: 20px 0;
+        .p-contactcv__mailicon {
+            margin: auto;
+        }
+    }
+    .p-contactcv__lead {   
+        //margin-top: 20px;
+        p{
+            text-align:center;
+        }
+        .lead-arrow {
+            display: none;
+        }
+    }
+
+}

@@ -1,0 +1,444 @@
+@use "../../global" as global;
+//--------------------------------
+//  見出し
+//--------------------------------
+.c-title {
+    position: relative;
+    display: inline-block;
+    font-size: global.$size-font-h2-en;
+    font-family: global.$font-title;
+    font-weight: bold;
+    margin-bottom: 16px;
+    color: global.$color-font;
+    p {
+        position: relative;
+        z-index: 2;
+    }
+}
+
+.c-title__h2 {
+    font-family: global.$font-title;
+    font-weight: bold;
+    width: 100%;
+    font-size: 28px;
+    text-align: left;
+    position: relative;
+    line-height: 1.5em;
+    color: white;
+    padding-bottom: 8px;
+    span {
+        margin-left: 40px;
+        font-size: 16px;
+        color: rgb(60, 80, 60);
+        @include global.mq('sp') {
+            margin-left: 0px;
+            display: none;
+        }
+    }
+    &:before {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        content: "";
+        width: 100%;
+        height: 8px;
+        border: 4px solid lightgreen;
+        border-radius: 10px;
+    }
+}
+
+.c-title__h2--solid-h2 {
+    &:before {
+        height: 2px;
+        border: 2px solid lightgreen;
+    }
+}
+
+.c-title__h2--dotted {
+    &:before {
+        height: 2px;
+        border: 1px dotted lightgreen;
+    }
+}
+
+.c-title__h2--dashed {
+    &:before {
+        height: 2px;
+        border: 1px dashed lightgreen;
+    }
+}
+
+.c-title__heading {
+    color: global.$color-font-dark;
+    width: 100%;
+    background-color: #a3e7a3; //gray;
+    font-size: 20px;
+    padding: 6px 16px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-top-left-radius: 20px;
+    border: 4px double rgba(0, 0, 0, 0.3);
+}
+
+//----------------------------------------
+//  ポートフォリオで使用
+//----------------------------------------
+.c-title__modan {
+    position: relative;
+    font-size: 48px;
+    font-weight: bold;
+    line-height: 1.4em;
+    font-family: global.$font-title;
+    color: global.$color-font;
+    z-index: 1;
+    text-shadow: 2px 2px 0 lightgreen, -2px -2px 0 lightgreen, -2px 2px 0 lightgreen, 2px -2px 0 lightgreen, 0px 2px 0 lightgreen, -2px 0 lightgreen, -2px 0 0 lightgreen, 2px 0 0 lightgreen;
+    p,
+    h2 {
+        font-size: clamp( 0.8em, 7vw, 1em);
+        position: relative;
+        z-index: 2;
+    }
+    
+    &.rotate{
+        &[data-headingparts="boxleft"] {
+            transform : rotate( 1deg );
+        }
+        &[data-headingparts="boxright"] {
+            transform : rotate( -1deg );
+        }
+        &[data-headingparts="boxrightsub"] {
+            transform : rotate( -1deg );
+        }
+        &[data-headingparts="boxleftsub"] {
+            transform : rotate( 1deg );
+        }
+    }
+    
+}
+
+.c-title__bg__modan {
+    position: relative;
+    width: auto;
+    color : rgba(0,0,0,0);
+    $str : attr(data-headingtext);
+    $strcount : str-length($str);
+    height: 64px;
+    margin-top: -64px;
+    z-index: 0;
+    span[data-headingparts="boxleft"],
+    span[data-headingparts="boxright"],
+    span[data-headingparts="boxleftsub"],
+    span[data-headingparts="boxrightsub"],
+    span[data-headingparts="base"] {
+        position: absolute;
+        width: calc( $strcount * 40px );
+        height: calc( 64px );
+        color: white;
+        text-shadow: 0px 0px 16px rgba(255, 255, 255, 1);
+        font-size: clamp( 5rem, 10vw, 7rem);
+        line-height: 3.0rem;
+        left: 50%;
+        transform: translate( -50%, 0);
+        z-index: 0;
+        // 文字選択できなくするが、範囲に入ると文字選択中に突然途切れるので、クリック感が悪くなる
+        user-select: none;
+        &:selection {
+            background: none;
+        }
+        //z-index: 1;
+        $w: 32px;
+        $h: 32px;
+        b,
+        i,
+        u,
+        span[data-headingparts="boxlu"],
+        span[data-headingparts="boxrb"],
+        span[data-headingparts="bg"] {
+            position: absolute;
+            content: "";
+            opacity: 0.6;
+            border-radius: 2px;
+            z-index: -1;
+            background-color: lightgreen;
+        }
+        span[data-headingparts="lead"] {
+            position: absolute;
+            content: "";
+        }
+
+
+        b,span[data-headingparts="bg"] {
+            left: calc( 0%);
+            top: calc( -10px);
+            width: calc( 100%);
+            height: calc( 100% + 20px);
+            border: 8px double white;
+            border-radius: 8px;
+        }
+        i,span[data-headingparts="boxlu"] {
+            left: -7px;
+            top: -17px;
+            width: $w;
+            height: $h;
+            border: 3px solid white;
+            z-index: 2;
+        }
+        u,span[data-headingparts="boxrb"] {
+            left: calc( 100% - 24px);
+            top: calc( 100% - 14px);
+            width: $w;
+            height: $h;
+            border: 3px solid white;
+            z-index: 2;
+        }
+    }
+    //  左伸ばし
+    span[data-headingparts="boxleft"],
+    span[data-headingparts="boxright"],
+    span[data-headingparts="boxrightsub"],
+    span[data-headingparts="boxleftsub"] {
+            left: 0%;
+        width :80vw;
+        height: 84px;
+        top : -10px;
+        opacity: 1;
+        border: 8px double white;
+        background-color: lightgreen;
+    }
+    span[data-headingparts="boxleft"] {
+        border-right: none;
+        width: 100vw;
+        transform:translate(0,0);
+        left: -55vw;
+    }
+    span[data-headingparts="boxright"] {
+        transform:translate(0,0);
+        left: 5vw;
+        width: 105vw;
+        //left: 100%;
+        right: 100%;
+        border-left: none;
+        border-right: none;
+        z-index : -1;
+    }
+    span[data-headingparts="boxrightsub"] {
+        left: 50%;
+        transform: translate( 0, 0px);
+        border-right: none;
+        z-index : -1;
+        background-color: global.$color-main-background;
+    }
+    span[data-headingparts="boxleftsub"] {
+        left: auto;
+        right: 20%;
+        transform: translate( 0, 0px);
+        border-left: none;
+        z-index : -1;
+        background-color: global.$color-main-background;
+    }
+
+    @include global.mq('sp') {
+        span[data-headingparts="base"] {
+            font-size: 5rem;
+            line-height: 3.5rem;
+            b,span[data-headingparts="bg"] {
+                position: absolute;
+                top: calc( 0);
+                content: "";
+                width: calc( 100%);
+                height: calc( 100%);
+            }
+            $w: 24px;
+            $h: 24px;
+            i,span[data-headingparts="boxlu"] {
+                left: -7px;
+                top: -6px;
+                width: $w;
+                height: $h;
+                border: 2px solid white;
+            }
+            u,span[data-headingparts="boxrb"] {
+                left: calc( 100% - 16px);
+                top: calc( 100% - 16px);
+                width: $w;
+                height: $h;
+                border: 2px solid white;
+            }
+            span[data-headingparts="boxleft"],
+            span[data-headingparts="boxright"]{
+                top: 0;
+                margin-left: auto;
+                //width :100vw;//82vw;
+                height: 100%;
+            }        
+            span[data-headingparts="boxrightsub"],
+            span[data-headingparts="boxleftsub"]{
+                top: 0;
+                height: 100%;
+            }
+        }
+    }
+}
+
+.c-title__bg__modan--green {
+    text-shadow: 2px 2px 0 #7EAB71, -2px -2px 0 #7EAB71, -2px 2px 0 #7EAB71, 2px -2px 0 #7EAB71, 0px 2px 0 #7EAB71, -2px 0 #7EAB71, -2px 0 0 #7EAB71, 2px 0 0 #7EAB71;
+    //  全体に暗い場所なので黒より白の方が良い
+    color : white;
+    span[data-headingparts="base"] {
+        color: global.$color-main-background;
+        text-shadow: 0px 0px 8px global.$color-main-background;
+        b,span[data-headingparts="bg"] {
+            background-color: lightgreen;
+            border: 8px double global.$color-main-background;
+        }
+        i,span[data-headingparts="boxlu"] {
+            border: 3px solid global.$color-main-background;
+        }
+        u,span[data-headingparts="boxrb"] {
+            border: 3px solid global.$color-main-background;
+        }
+        span[data-headingparts="boxleft"],
+        span[data-headingparts="boxright"]{
+            background-color: lightgreen;
+            border: 8px double global.$color-main-background;
+        }
+        span[data-headingparts="boxleftsub"],
+        span[data-headingparts="boxrightsub"] {
+            background-color: rgb(108, 151, 108);
+            border: 8px double global.$color-main-background;
+        }
+
+        span[data-headingparts="boxleft"]{
+            border-right: none;
+        }
+        span[data-headingparts="boxright"] {
+            border-left: none;
+        }
+    }
+    @include global.mq('sp') {
+        b,span[data-headingparts="bg"] {
+            border: 4px double global.$color-main-background;
+        }
+        span[data-headingparts="base"] {
+            span[data-headingparts="boxleftsub"] {
+                right: 50%;
+            }
+        }
+    }
+}
+
+//  セクションタイトル以下のアイテムタイトル等
+.c-title__h3 {
+    font-family: global.$font-title;
+    font-size: clamp(1.0rem, 2vw, 1.5rem);
+    font-weight: bold;
+    height: clamp(1.5em, 2vw, 3em);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+//  セクションタイトル以下のアイテムタイトル等
+.c-title__h4 {
+    font-family: global.$font-title;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    font-weight: bold;
+    height: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+//----------------------------------
+//  見出しbackground演出
+//----------------------------------
+$bgcol1: global.$color-main-background;
+$bgcol: global.$color-accent;
+$bgcolg :rgb(197, 197, 197);
+$bgcolg2 :lightgray;
+//  見出し背景
+.c-title__bg {
+    padding: 24px 40px;
+    //margin-bottom: 8px;
+    width: fit-content;
+    min-width: 4em;
+    border-radius: 2px;
+    filter: drop-shadow( 0px 0px 10px rgba(0, 0, 0, 0.5));
+    border-top-left-radius: 20px;
+}
+
+//  Macのボタンみたいなドロップ
+.c-title__bg__drop {
+//    background: linear-gradient( to bottom, transparent 0%, transparent 50%, $bgcol 60%, $bgcol 100%);
+    background: linear-gradient( to bottom, transparent 0%, $bgcol1 50%, $bgcol 60%, $bgcol 100%);
+    border: 3px double global.$color-main-background;
+    h2{
+        text-shadow: 0px 0px 8px RGBA(0,0,0,0.8);
+    }
+}
+
+//  グラデーション影入り
+.c-title__bg__grad {
+    background: linear-gradient( 135deg, $bgcol1 0%, $bgcol1 20%, $bgcol 40%, $bgcol 100%);
+    border: 3px double global.$color-main-background;
+}
+
+//  グラデーション影入り
+.c-title__bg__grad2 {
+    background: linear-gradient( -45deg, $bgcol1 0%, $bgcol1 20%, $bgcol 40%, $bgcol 100%);
+    border: 3px double global.$color-main-background;
+}
+//  グラデーション影入り
+.c-title__bg__grad3 {
+    //background: linear-gradient( -45deg, $bgcol 0%, $bgcol 20%, $bgcol1 40%, $bgcol1 100%);
+    background: linear-gradient( -45deg, $bgcolg 0%, $bgcolg 19%, $bgcolg2 20%, white 100%);
+    border: 3px double $bgcolg;
+    border-radius: 4px;
+    padding: 16px 40px;
+    filter: drop-shadow( 0px 0px 4px rgba(0, 0, 0, 0.3));
+    h3{
+        //color : white;
+        font-weight: 400;
+    }
+}
+
+//--------------------------------------------
+//  タブ
+@include global.mq('sp-tab2') {
+    .c-title__modan {
+        font-size : 24px;
+        line-height: 2.4em;
+    }
+    .c-title__bg__modan {
+        span[data-headingparts="boxleftsub"] {
+            right : 30%;
+        }
+    }
+}
+
+//--------------------------------------------
+//  SP版
+@include global.mq('sp') {
+    .c-title__modan {
+        font-size : 24px;
+        line-height: 2.4em;
+        &[data-headingparts="boxleft"],
+        &[data-headingparts="boxright"],
+        &[data-headingparts="boxrightsub"],
+        &[data-headingparts="boxleftsub"]
+        {
+            transform : rotate( 0deg );
+        }
+    
+    }
+    .c-title__bg__modan {
+        span[data-headingparts="boxleftsub"] {
+            right : 50%;
+        }
+    }
+    //  見出し背景
+    .c-title__bg {
+        padding: 16px 40px;
+    }
+}

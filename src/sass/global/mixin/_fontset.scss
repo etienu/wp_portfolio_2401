@@ -1,0 +1,23 @@
+//  フォント変数
+@use "../variable" as g;
+//
+//  title用フォント
+@mixin fontSet_title {
+    font-family: g.$font-title;
+    font-weight: 700;
+    font-display: swap;
+}
+
+//  lead用フォント
+@mixin fontSet_lead {
+    font-family: g.$font-lead;
+    font-weight: 400;
+    font-display: swap;
+}
+
+//  lead用フォント
+@mixin fontSet_Code {
+    font-family: g.$font-lead;
+    font-weight: 400;
+    font-display: swap;
+}

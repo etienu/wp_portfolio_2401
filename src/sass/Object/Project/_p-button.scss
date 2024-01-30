@@ -1,0 +1,14 @@
+@use "../../global" as global;
+//  ポートフォリオ用
+.p-button__pf {
+    height: 60px;
+    max-width: 300px;
+    font-size: 20px;
+}
+
+.p-button__submit {
+    height: 50px;
+    max-width: 200px;
+    font-size: 18px;
+    font-weight: 600;
+}

@@ -1,0 +1,167 @@
+@use "../global" as global;
+//--------------------------------
+//  GoogleReCaptcha消す
+.grecaptcha-badge {
+    visibility: hidden;
+}
+
+//--------------------------------
+//    contact
+//--------------------------------
+.l-contact {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin-top: -1px;
+    padding-top: 100px;
+    $bgcolw: global.$color-white;
+    $bgcol: global.$color-main-background;
+    &[data-color="white"]{
+        //$bgcol = $bgcolw;
+        //background-color : $bgcol;//global.$color-white;
+        background: linear-gradient( to bottom, $bgcolw 0%, $bgcolw 50%, transparent 50%, transparent 100%);
+    }
+    &[data-color="green"]{
+        $bgcol: global.$color-main-background;
+        //background-color : $bgcol;//global.$color-white;
+        background: linear-gradient( to bottom, $bgcol 0%, $bgcol 50%, transparent 50%, transparent 100%);
+
+    }
+    clip-path: polygon(0 0%, 100% 0%, 100% 100%, 0 90%);
+    &[data-page="contact"]{
+        clip-path: none;
+        padding-top: 40px;
+        padding-bottom : 40px;
+    }
+    &:before{
+        position : absolute;
+        content : "";
+        margin-top: -1px;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        //background-color : $bgcol;
+        clip-path: polygon(0 10%, 100% 0%, 100% 100%, 0 100%);
+    //    clip-path: polygon(0 80%, 100% 90%, 100% 100%, 0 95%);
+    }/*
+    background-image: url(../images/contact/contact2.jpg);
+    opacity: 1;
+    bottom : 0;
+    background-size:cover;
+    background-position: top;
+    filter:brightness(1) sepia(0.5);
+    */
+}
+
+.l-contact__background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url(../images/contact/mail.jpg);
+    opacity: 1;
+    top: 0;
+    left : 0;
+    background-size: cover;
+    background-position: 0% 70%;
+    z-index: -1;
+    filter:brightness(0.3) sepia(1);
+    //  初期状態を非表示にし、jｓでY位置によって表示させる
+    //display:none;
+    display: block;
+    &.disp{
+        display: block;
+    }
+    video{
+        bottom : 0;
+    }
+    clip-path: polygon(0 10%, 100% 0%, 100% 100%, 0 95%);
+
+}
+/*
+.l-contact__topspace {
+    width: 100%;
+    height: 40px;
+    //  デフォルト
+    background-color : white;
+    &[data-color="white"]{
+        background-color : white;
+    }
+    &[data-color="green"]{
+        background-color : global.$color-main-background;
+    }
+}
+*/
+.l-contact__inner {
+    position: relative;
+    width: calc( 100% - 40px );
+    max-width: 1110px;
+    height: auto;
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom : 160px;
+    padding-top : 40px;
+    padding-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    border-radius: 10px;
+    $bgcoll: global.$color-main-background;
+    $bgcol: transparent;
+//    background: linear-gradient( to bottom, $bgcoll 0%, $bgcoll 98%, $bgcol 100%, transparent 100%);
+    //  background-color: $bgcoll;
+    background-color: RGBA(255,255,255,0.7);//global.$color-white;
+
+    form {
+        max-width: 800px;
+        width: 100%;
+    }
+    //  コンバージョンボタン
+    .l-contact__cvwrapper {
+        margin-top : 40px;
+        width: calc(100% - 40px );
+    }
+    p{
+        margin-top: 20px;
+        font-weight: bold;
+    }
+
+}
+
+//  レスポンシブ
+@include global.mq('sp-tab2') {
+    .l-contact__inner {
+        flex-direction: column;
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+}
+
+@include global.mq('sp') {
+.l-contact__inner {
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .c-lead__hard {
+            margin-left: 20px;
+            margin-right: 20px;
+            max-width: 480px;
+            text-align: left;
+        }
+        .p-contact__form-items {
+            width: 100%;
+        }
+        .p-contact__form-footer {
+            margin: 0 20px;
+        }
+    }
+    //  コンバージョンボタン
+    .l-contact__cvwrapper {
+        margin-top : 40px;
+    }
+}
+}

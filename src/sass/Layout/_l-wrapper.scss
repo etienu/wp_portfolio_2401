@@ -1,0 +1,8 @@
+@use "../global" as global;
+// どのレイアウトでも使いそうな汎用枠組み
+.l-wrapper__returnbutton {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}

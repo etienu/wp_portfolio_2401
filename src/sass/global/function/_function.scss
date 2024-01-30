@@ -1,0 +1,61 @@
+//  画面幅などの固定変数を使用
+@use "../variable" as g;
+
+/*--------------------------------------------------
+レスポンシブ計算
+--------------------------------------------------*/
+
+@function clamp_vw($num) {
+    $minWidth: 767; // レイアウトの最小幅(タブレット下)
+    $maxWidth: 1024; // レイアウトの最大幅(タブレット上)
+    $val_min: $num * 1px;
+    // 引数で渡された最小数値をvw値に変換
+    $val_vw: round( $num / $minWidth * 100 * 1000) / 1000;
+    // 最大幅でのpx数を算出
+    $val_max: round( $maxWidth * ($val_vw / 100)) * 1px;
+    // clamp()関数に３つの引数を設定して返す - 2番目の引数はここでvw単位を付けている
+    @return clamp( #{$val_min}, #{$val_vw * 1vw}, #{$val_max});
+}
+
+
+/*==========================================================================
+SVGをBase64コードに変換する
+[Html] SVG塗りつぶしの色をBackground-Imageとして扱うときに変更する
+https://code.i-harness.com/ja/q/cbfa3c
+============================================================================*/
+
+@function str-replace($string, $search, $replace: '') {
+    $index: str-index($string, $search);
+    @if $index {
+        @return str-slice($string, 1, $index - 1)+$replace+str-replace( str-slice($string, $index + str-length($search)), $search, $replace);
+    }
+    @return $string;
+}
+
+@function url-encode($string) {
+    $map: ( '%': '%25', '<': '%3C', '>': '%3E', ' ': '%20', '!': '%21', '*': '%2A', "'": '%27', '"': '%22', '(': '%28', ')': '%29', ';': '%3B', ':': '%3A', '@': '%40', '&': '%26', '=': '%3D', '+': '%2B', '$': '%24', ',': '%2C', '/': '%2F', '?': '%3F', '#': '%23', '[': '%5B', ']': '%5D');
+    $new: $string;
+    @each $search,
+    $replace in $map {
+        $new: str-replace($new, $search, $replace);
+    }
+    @return $new;
+}
+
+@function inline-svg($string) {
+    @return url('data:image/svg+xml;charset=utf8,#{url-encode($string)}');
+}
+
+
+/*==========================================================================
+フレキシブルな数字の生成 y=ax+bの形の一次関数グラフの動きをする余白を生成します。
+============================================================================*/
+
+@function flexNumber($minSize,
+$maxSize,
+$minMq,
+$maxMq) {
+    $minSizePX: #{$minSize}px;
+    $minMqPX: #{$minMq}px;
+    @return calc( #{$minSizePX}+((#{$maxSize} - #{$minSize}) * (100vw - #{$minMqPX}) / (#{$maxMq} - #{$minMq})));
+}

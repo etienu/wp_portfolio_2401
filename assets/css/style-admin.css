@@ -1,0 +1,21 @@
+/*
+    管理画面のCSS
+    独自管理ページ
+*/
+.setting-table{
+    border : 1px solid black;
+}
+
+.setting-table > tbody {
+    background-color : white;
+}
+
+.setting-table > tbody > tr > th{
+    background-color : lightgray;
+    padding: 0 16px;
+}
+
+.setting-table > tbody > tr > td{
+    text-align:right;
+    padding: 0 16px;
+}

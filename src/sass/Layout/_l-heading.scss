@@ -1,0 +1,39 @@
+@use "../global" as g;
+//--------------------------------
+//    heading
+//--------------------------------
+.l-heading{
+//    max-width: min( calc(100% - 40px), g.$layout-width-inner );
+    max-width: min( calc(100% - 80px), 1110px );
+    margin: auto;
+    //margin: auto 0 auto 0px;
+    text-align:left;
+    padding : 20px 0 10px;
+    &.--center{
+        display: flex;
+        justify-content: center;
+    }
+}
+
+//--------------------------------
+//  レスポンシブ
+//--------------------------------
+@include g.mq('sp-tab2') {
+}
+
+@include g.mq('tab2') {
+}
+
+@include g.mq('sp') {
+    .l-heading{
+        display: flex;
+        justify-content: center;
+        max-width: min( calc(100% - 80px), 500px );
+        padding : 20px 0 10px;
+        &.--spcenter{
+            display: flex;
+            justify-content: center;
+        }
+    
+    }
+}

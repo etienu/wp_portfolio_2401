@@ -1,0 +1,58 @@
+// object
+@use "../../global" as global;
+//--------------------------------------------------
+//    HTML上でのスタイル指定
+//--------------------------------------------------
+//----------------------------------------
+//
+//  色調整
+//
+//----------------------------------------
+.u-color-font__light {
+    color: global.$color-font-w;
+}
+
+.u-color-font__dark {
+    color: global.$color-black;
+}
+
+.u-color-font__accent {
+    color: global.$color-font-accent;
+}
+
+//------------------
+//  background
+//------------------
+.u-color-bg__white {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.u-color-bg__lightgreen {
+    background-color: lightgreen;
+}
+
+// 背景非表示
+.u-color-bg__transparent {
+    background-color: transparent;
+}
+
+.u-color-bg-01 {
+    background-color: global.$color-lightgray;
+}
+
+.u-color-bg-02 {
+    background-color: #364a36;
+}
+
+.u-color-bg__white {
+    background-color: white;
+}
+
+.u-color-bg__main {
+    background-color: global.$color-main-background;
+}
+
+//  記事の背景
+.u-color-bg__post {
+    //background-color: global.$color-post-background;
+}

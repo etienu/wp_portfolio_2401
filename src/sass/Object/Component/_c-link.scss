@@ -1,0 +1,27 @@
+@use "../../global" as global;
+.c-link {
+    display: inline-block;
+    text-decoration: underline;
+    color: lightgreen;
+    transition: 0.3s;
+    i {
+        margin-left: 2px;
+    }
+    &:hover {
+        cursor: pointer;
+        opacity: 0.6;
+    }
+}
+
+.c-link--blue {
+    color: #7dfffa;
+}
+
+.c-link--green {
+    color: global.$color-accent;
+}
+
+.c-link--black {
+    color: global.$color-font-dark;
+    font-weight: 400;
+}

@@ -1,0 +1,13 @@
+@use "../../global" as global;
+.c-lead {
+    color: global.$color-font;
+    font-family: global.$font-lead;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    font-weight: 400;
+}
+
+.c-lead__hard {
+    font-family: global.$font-lead;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    font-weight: bold;
+}

@@ -1,0 +1,403 @@
+@use "../../global" as global;
+//
+.p-contact {
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding-bottom: 40px;
+}
+
+.p-contact__inner {
+    width: 100%;
+    margin: auto;
+    max-width: 800px;
+    min-height: 800px; //   thanksページが狭すぎる為
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 40px;
+}
+
+.p-contact__backbutton {
+    margin: auto;
+    margin-top: 60px;
+    display: flex;
+    color: lightgreen;
+    text-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+    text-decoration: underline;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 200px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+    a {
+        transition: 0.3s;
+        &:hover {
+            text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.8);
+            opacity: 0.7;
+        }
+    }
+}
+
+//----------------------------------------
+//  formアイテム
+//----------------------------------------
+.p-contact__form-items {
+    margin-top: 20px;
+    padding: 20px 40px;
+    background-color: white;
+    border-radius: 8px;
+    @include global.mq('sp') {}
+}
+
+.p-contact__form-item {
+    margin-top: 24px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    label{
+        font-size: 18px;
+        font-weight: bold;
+        line-height: 1em;
+        @include global.mq('sp') {
+            font-size: 16px;
+            margin: 0;
+        }
+    }
+    input{
+        display: block;
+        width: 100%;
+    }
+}
+
+//　「必須」表記 / mandatory
+.p-contact__form-mandatory {
+    position: relative;
+    &:after {
+        position: absolute;
+        display: flex;
+        left: 100%;
+        border-radius: 5px;
+        margin-top: 4px;
+        line-height: 1.70em;
+        margin-left: 8px;
+        font-size: 0.7em;
+        top: -40%; //0px;
+        padding: 1px 0px 0px 8px;
+        width: 42px;
+        height: 22px;
+        background-color: #FF2222;
+        color: white;
+        content: "必須";
+        @include global.mq('sp') {
+            font-size: 12px;
+            width: 40px;
+            height: 20px;
+        }
+    }
+}
+
+.p-contact__form-text,
+.p-contact__form-select,
+.p-contact__form-textarea {
+    margin-top: 8px;
+    width: 100%;
+    height: 48px;
+    //border: 1px solid #888888;
+    border-radius: 5px;
+    padding: 8px 16px;
+    font-size: 1.05em;
+    line-height: 1.3em;
+    //  文字にまで影響及ぼすので消す
+    outline: none;
+    //font-weight: bold;
+    &::placeholder {
+        color: #CCCCCC;
+    }
+    // 旧Edge対応
+    &::-ms-input-placeholder {
+        color: #CCCCCC;
+    }
+    // IE対応
+    &:-ms-input-placeholder {
+        color: #CCCCCC;
+    }
+    &:disabled,
+    &:read-only {
+        background: #CCC;
+        //color : darkgray;
+        //  選択不可がかつフォーカスれた場合
+        &:focus {
+            border: 2px solid gray;
+        }
+    }
+    @include global.mq('sp') {
+        width: 100%;
+        margin-top: 4px;
+    }
+}
+
+.p-contact__form-text {
+    &:focus {
+        border: 2px solid global.$color-accent; // black; //gray;
+        padding: 8px 15px;
+    }
+}
+
+.p-contact__form-textarea {
+    &:focus {
+        border: 2px solid global.$color-accent; // black;
+        padding: 7px 15px;
+    }
+}
+
+.p-contct__form-select {
+    //　初期色
+    color: #DDDDDD;
+}
+
+.p-contact__form-textarea {
+    height: 240px;
+    @include global.mq('sp') {
+        height: 160px;
+    }
+}
+
+.p-contact__form-required {
+    display: none;
+    color: #f00;
+    text-align: left;
+    font-weight: 300;
+    &.-error {}
+}
+
+.p-contact__form-required-mes2 {
+    color: black;
+    display: none;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 60px;
+    padding: 8px 16px;
+    border: 2px solid orange;
+}
+
+//----------------------------------------
+//  チェックボックス
+//----------------------------------------
+.p-contact__form-checkpplabel {
+    margin-right: 0px;
+    transition: 0.3s;
+    //color : black;
+    &:hover {
+        opacity: 0.8;
+    }
+    &.hover {
+        opacity: 0.8;
+    }
+}
+
+.p-contact__form-check {
+    text-align: center;
+    width: 100%;
+    margin: 8px auto 0 auto;
+    font-size: 16px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 40px;
+    .p-contact__form-submit {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    label {
+        cursor: pointer;
+        span {
+            font-weight: bold;
+            text-decoration: underline;
+            margin-right: 8px;
+        }
+    }
+    @include global.mq('sp') {
+        font-size: 14px;
+    }
+}
+
+.p-common-check-icon {
+    &.hover {
+        opacity: 0.8;
+    }
+}
+
+.p-contact__form-checkpplink {
+    display: inline-block;
+    text-decoration: underline;
+    color: lightgreen;
+    transition: 0.3s;
+    &:hover {
+        cursor: pointer;
+        opacity: 0.7;
+    }
+}
+
+//----------------------------------------
+//  ボタン
+//----------------------------------------
+.p-contact__form-submit {
+    background-color: lightgreen;
+    margin: auto;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 208px;
+    height: 60px;
+    padding: 0px auto;
+    font-size: 16px;
+    font-style: normal;
+    border: 2px solid lightgreen; //global.$color-key-blue;
+    border-radius: 5px;
+    color: black;
+    &:before {
+        position: absolute;
+    }
+    &:after {
+        content: "";
+    }
+    &:disabled {
+        color: #555555;
+        &:hover {
+            color: #555555;
+        }
+    }
+    &:not(:disabled) {
+        &:hover {
+            color: black;
+            opacity: 0.8;
+            border: 2px solid lightgreen;
+            background-color: lightgreen;
+        }
+    }
+    @include global.mq('sp') {
+        max-width: 295px;
+    }
+}
+
+
+/*
+//  コンタクトフォームのレスポンス消すなら
+.wpcf7-response-output {
+    display: none;
+}
+
+.wpcf7-not-valid-tip {
+    display: none;
+}
+
+.wpcf7-not-valid-tip {
+    display: none;
+}
+*/
+
+//----------------------------------------
+//  フッター フォームの下
+//----------------------------------------
+.p-contact__form-footer {
+    font-size: clamp(12px, 2vw, 16px);
+}
+
+//----------------------------------------
+//  送信後
+//----------------------------------------
+.p-contact__sendresult {
+    margin-top: 20px;
+    display: none;
+    &.-error {}
+}
+
+//----------------------------------------
+//  COMPLETE
+//----------------------------------------
+.p-contact__complete {
+    width: 100%;
+//    height: 500px;
+    margin: 0 8px;
+    font-size: clamp(16px, 3vw, 24px);
+    font-weight: 500;
+    padding-bottom: 40px;
+}
+
+//----------------------------------------
+//  進行度
+//----------------------------------------
+.p-contact__progress-flow__wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    counter-reset: boxs 0;
+}
+
+.p-contact__progress-flow {
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    gap: clamp( 60px, 10vw, 150px);
+    .bar {
+        position: absolute;
+        width: 100%;
+        top: 20px;
+        height: 2px;
+        background-color: gray;
+    }
+    .item {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: calc( 40px);
+        height: 100%;
+        color: lightgray;
+        .numberbox {
+            border: 4px double global.$color-main-background;
+            border-radius: 4px;
+            width: 40px;
+            height: 40px;
+            background-color: gray;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            counter-increment: boxs 1;
+            content: counter(boxs);
+            font-size: 14px;
+            position: relative;
+        }
+        .text {
+            margin-top: 8px;
+            font-size: 14px;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            color: black;
+            font-weight: bold;
+        }
+        &.now {
+            font-weight: bold;
+            .numberbox {
+                background-color: global.$color-main-background-mid;
+            }
+            .text {
+                margin-top: 6px;
+                font-size: 16px;
+            }
+        }
+    }
+}

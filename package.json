@@ -1,0 +1,48 @@
+{
+    "name": "eec",
+    "version": "1.0.0",
+    "description": "etienu-code package",
+    "private": true,
+    "scripts": {
+        "watch": "webpack --watch --mode development",
+        "buildd": "webpack --mode development",
+        "build": "webpack --mode production",
+        "//build": "webpack"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@babel/cli": "^7.21.5",
+        "@babel/core": "^7.21.8",
+        "@babel/plugin-transform-runtime": "^7.21.4",
+        "@babel/preset-env": "^7.21.5",
+        "@terwanerik/scrolltrigger": "^1.0.5",
+        "autoprefixer": "^10.4.14",
+        "babel-cli": "^6.26.0",
+        "babel-loader": "^9.1.2",
+        "css-loader": "^6.7.3",
+        "css-minimizer-webpack-plugin": "^5.0.0",
+        "globule": "^1.3.4",
+        "gulp": "^4.0.2",
+        "gulp-changed": "^4.0.3",
+        "gulp-imagemin": "^7.1.0",
+        "gulp-sass": "^5.1.0",
+        "imagemin-mozjpeg": "^9.0.0",
+        "imagemin-pngquant": "^9.0.2",
+        "mini-css-extract-plugin": "^2.7.5",
+        "postcss-loader": "^7.3.0",
+        "sass": "^1.62.1",
+        "sass-loader": "^13.2.2",
+        "smoothscroll-polyfill": "^0.4.4",
+        "terser-webpack-plugin": "^5.3.7",
+        "webpack": "^5.82.0",
+        "webpack-bundle-analyzer": "^4.8.0",
+        "webpack-cli": "^5.0.2",
+        "webpack-fix-style-only-entries": "^0.6.1"
+    },
+    "browserslist": [
+        "last 2 version",
+        "> 1%"
+    ]
+}

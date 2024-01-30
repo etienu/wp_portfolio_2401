@@ -1,0 +1,185 @@
+@use "../global" as g;
+//--------------------------------
+//    intro
+//--------------------------------
+.l-intro {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding : 110px 0;
+    background-color : white;
+}
+
+.l-intro__inner {
+    position: relative;
+    width: 100%;
+    max-width: 840px;
+    height: auto;
+    margin: auto;
+    display: flex;
+    flex-direction : column;
+    justify-content: center;
+    align-items: center;
+    color : gray;
+}
+
+.l-intro__head {
+    width: 100%;
+    font-family : g.$font-NotoSansJP;
+    text-align:left;
+    h2{
+        display: flex;
+        flex-direction : row;
+        position : relative;
+        font-size: 20px;
+        font-weight: 400;
+        width: 100%;
+        span{
+            width: fit-content;
+            flex:none;
+        }
+        .line{
+            flex:auto;
+            width: 100%;
+            margin : auto;
+            margin-left: 40px;
+            height: 1px;
+            background-color : gray;
+        }
+    }
+}
+
+.l-intro__content {
+    position :relative;
+    display: flex;
+    flex-direction : row;
+    justify-content: center;
+    margin-top : 40px;
+    width: 100%;
+    gap: 40px;
+    .l-intro__ideal {
+        margin-top: auto;
+        margin-bottom: auto;
+        font-size: 48px;
+        color : goldenrod;
+        font-family : g.$font-NotoSansJP;
+        text-align:right;
+        span{
+            display:inline-block;
+        }
+
+    }
+    .l-intro__lead {
+        h3{
+            margin-bottom : 20px;
+        }
+        text-align:left;
+        //font-feature-settings: 'palt' 1;
+        //letter-spacing : 1.5px;
+        margin: auto 10px;
+        [data-eff="gsapintro_txtmarker"]{
+            position : relative;
+            $col : goldenrod;
+            //$col : g.$color-main-background;// lightgreen;
+            z-index: 0;
+            //  マーカー演出
+            &[data-type="marker"]{
+                transition :color 1.0s,font-weight 2.0s, background 1.0s;
+                background:linear-gradient($col, $col);
+                background-position : 0 100%;
+                background-size : 0% 100%;
+                background-repeat : no-repeat;
+                padding : 0 10px;
+                margin-left : -10px;
+                &[data-disp="true"]{
+                    background-size: 100% 100%;
+                    color : white;
+                }
+            }
+            //  色変化
+            &[data-type="color"]{
+                transition :color 1.0s,font-weight 2.0s, background 2.0s;
+                background : none;
+                &[data-disp="true"]{
+                    color : $col;
+                }
+            }
+        }
+    }
+
+}
+
+
+
+//--------------------------------
+//  レスポンシブ
+//--------------------------------
+@include g.mq('sp-tab') {
+    .l-intro__inner{
+        max-width: 800px;
+    }
+    .l-intro__head {
+        width: 100%;
+        max-width: min( 800px, calc(100% - 24px ));
+    }
+    .l-intro__content {
+        flex-direction : column;
+        justify-content : center;
+        max-width: calc(100% - 24px);
+        width: 100%;
+        gap: 8px;
+        .l-intro__ideal {
+            width: fit-content;//100%;
+            font-size : 40px;
+            line-height: 78px;
+        //    max-width: 39%;
+            //max-width: min( 600px, calc( 100% - 24px ));
+            margin:auto;
+        }
+        .l-intro__lead {
+            width: fit-content;//100%;
+        //    max-width: 66%;
+            //max-width: min( 600px, calc( 100% - 24px ));
+            margin:auto;
+        }
+    }
+}
+
+@include g.mq('sp') {
+    .l-intro__inner{
+        max-width: min( calc(100% - 24px), 600px );
+        flex-direction: column;
+    }
+    .l-intro__head {
+        h2{
+            max-width: 100%;
+            font-size: 16px;
+        }
+    }
+    
+    .l-intro__content {
+        flex-direction : column;    
+        max-width: calc(100% - 24px);
+        //font-size: 14px;
+        .l-intro__ideal {
+            //max-width: 100%;
+            line-height: inherit;
+            text-align:left;
+        }
+        .l-intro__lead {
+            margin-top : 20px;
+            font-size: 16px;
+            //max-width: 100%;
+            text-align:center;
+            //margin-left: 0px;
+        }
+    }
+}
+
+@include g.mq('ip') {
+    .l-intro__content {
+        .l-intro__ideal {
+            font-size : 38px;
+        }
+    }
+}

@@ -1,0 +1,24 @@
+//
+@use "../../global" as global;
+.u-flex__left {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.u-flex__xcenter {
+    display: flex;
+    justify-content: center;
+}
+
+.u-flex__ycenter {
+    display: flex;
+    align-items: center;
+}
+
+@include global.mq('sp') {
+    //  classがついている場合SP時のみセンターにする
+    .u-flex__xcenter-sp {
+        display: flex;
+        justify-content: center;
+    }
+}

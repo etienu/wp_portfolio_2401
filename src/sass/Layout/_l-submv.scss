@@ -1,0 +1,81 @@
+//--------------------------------------------------
+//
+//    sub main visual
+//
+//
+//
+//--------------------------------------------------
+@use "../global" as global;
+.l-submv {
+    position: relative;
+    width: 100%;
+}
+
+.l-submv__inner {
+    position: relative;
+    width: 100%;
+    height: clamp( 300px, 20vw, 400px);
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.l-submv__background-boader {
+    position: absolute;
+    width: 100%;
+    height: clamp( 300px, 20vw, 400px);
+    background-color: lightgreen;
+    opacity: 0.6;
+    z-index: 0;
+}
+
+.l-submv__background-boader__white {
+    position: absolute;
+    width: 100%;
+    min-height: min( 100vw, 100vh);
+    background-color: white;
+    opacity: 1;
+    z-index: 0;
+    clip-path: polygon(0 calc(100% - 2.1vw), 100% calc(100% - 7.1vw), 100% calc(100% - 0vw), 0% calc(100% - 0vw));
+}
+
+.l-submv__background {
+    position: fixed;
+    width: 100%;
+    height: clamp( 300px, 20vw, 400px);
+    background-image: url(../images/hero/frontpage_hero.jpg);
+    filter:brightness(0.8) sepia(0.5);
+
+    opacity: 1;
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+}
+
+.l-submv__heading {
+    font-size: clamp( 2rem, 6vw, 5rem);
+    font-weight: 700;
+    margin-top: 20px;
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 1);
+    color: white;
+}
+
+.l-submv__lead {
+    font-size: clamp( 0.5rem, 3vw, 1.5rem);
+    color: black;
+    text-shadow: 1px 1px 6px rgba(255, 255, 255, 1);
+}
+
+//--------------------------------
+//  レスポンシブ
+//--------------------------------
+@include global.mq('sp-tab2') {
+    .l-submv__inner {
+        flex-direction: column;
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+}

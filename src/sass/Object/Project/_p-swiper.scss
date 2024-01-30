@@ -1,0 +1,100 @@
+@use "../../global" as global;
+//  swiperを扱う枠
+.p-swiper__container {
+    width: 100%;
+}
+
+//  ページネーションの領域が必用な場合
+.p-swiper__pagination-inner {
+    position: relative; // paginationがabsoluteの為
+    width: 100%;
+    height: 40px;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    //  ページネーションを外に出す方法
+    .swiper-horizontal>.swiper-pagination-bullets,
+    .swiper-pagination-bullets.swiper-pagination-horizontal,
+    .swiper-pagination-custom,
+    .swiper-pagination-fraction {
+        bottom: 0;
+    }
+}
+.swiper-pagination-bullet-active{
+    background-color : goldenrod;//lightgreen;
+}
+
+
+//  swiperslider
+.swiper {
+    //スライダーの幅と高さを調整
+    max-width :min( 100%, 900px );
+    width: 100%;
+    height: auto;
+}
+
+.swiper-slide {
+    //スライド要素の幅と高さを調整
+    width: 100%;
+    height: 100%;
+    //テキストの位置調整
+    display: flex;
+    flex-direction :column;
+    justify-content: center;
+    align-items: center;
+    //テキストの色と太さを指定
+    color: #fff;
+    font-weight: bold;
+}
+
+
+// ①各スライドに以下クラスを追加で付与
+// ②スライド背景色を設定
+
+.slide1 {
+    background-color: #88acbd;
+}
+
+.slide2 {
+    background-color: #99cb1f;
+}
+
+.slide3 {
+    background-color: #e43a47;
+}
+
+
+//--------------------------------
+//  レスポンシブ
+//--------------------------------
+@include global.mq('sp-tab2') {
+    .swiper {
+        //  スライダーの幅と高さを調整
+        max-width : 600px;
+        width : 100%;
+    }
+}
+
+@include global.mq('sp') {
+    .swiper {
+        display: contents;
+    }
+    .swiper-wrapper {
+        display: contents;
+    }
+    .swiper-slide {
+        display: contents;
+    }
+    .swiper-pagination{
+        display : none;
+    }
+    .swiper-button-prev{
+        display : none;
+    }
+    .swiper-button-next{
+        display : none;
+    }
+    .swiper-scrollbar{
+        display : none;
+    }
+}

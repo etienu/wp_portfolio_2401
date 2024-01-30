@@ -1,0 +1,61 @@
+/*  googlefonts */
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+    src: url("../webfonts/googlefonts/Roboto-Medium.ttf") format("truetype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 300;
+    font-display: block;
+    src: url("../webfonts/googlefonts/Roboto-Light.ttf") format("truetype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: bold;
+    font-display: block;
+    src: url("../webfonts/googlefonts/Roboto-Bold.ttf") format("truetype");
+    font-display: swap;
+}
+
+/*  Noto Serif JP */
+@font-face {
+    font-family: 'Noto Serif JP';
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+    src: url("../webfonts/googlefonts/NotoSerifJP/NotoSerifJP-Regular.woff2") format("woff2"),
+    url("../webfonts/googlefonts/NotoSerifJP/NotoSerifJP-Regular.woff") format("woff"),
+    url("../webfonts/googlefonts/NotoSerifJP/NotoSerifJP-Regular.otf") format("truetype");
+    font-display: swap;
+}
+
+/*  Noto Sans JP */
+@font-face {
+    font-family: 'Noto Sans JP';
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+    src: url("../webfonts/googlefonts/NotoSansJP/NotoSansJP-Medium.woff2") format("woff2"),
+    url("../webfonts/googlefonts/NotoSansJP/NotoSansJP-Medium.ttf") format("truetype");
+    font-display: swap;
+}
+
+/*
+@font-face {
+    font-family: 'Hind';
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+    src: url("../webfonts/googlefonts/Hind/Hind-Regular.ttf") format("truetype");
+    font-display: swap;
+}
+*/

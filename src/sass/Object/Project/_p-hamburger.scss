@@ -1,0 +1,46 @@
+@use "../../global" as global;
+//----------------------------------------
+//   ハンバーガーメニュー
+//----------------------------------------
+.p-hamburger__wrapper {
+    right: 0;
+    transition: 0.3s;
+    z-index: 520;
+}
+
+.p-hamburger {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    gap: 6px;
+    span {
+        width: 32px;
+        height: 3px;
+        border-radius: 20px;
+        background-color: black;
+        transition: 0.3s;
+    }
+    transition: 0.3s;
+    background-color: global.$color-main-cv;
+    &:hover {
+        cursor: pointer;
+        background-color: global.$color-main-cv;
+    }
+    &.open {
+        span {
+            &:nth-child(1) {
+                transform: rotate(135deg) translate(8px, -8px);
+            }
+            &:nth-child(2) {
+                opacity: 0;
+            }
+            &:nth-child(3) {
+                transform: rotate(-135deg) translate(4px, 4px);
+            }
+        }
+    }
+}

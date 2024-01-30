@@ -1,0 +1,46 @@
+@use "../../global" as global;
+//--------------------------------
+//
+//  gsapで使用するパーツ
+//
+//--------------------------------
+//--------------------------------
+//  SCROLLボタン
+//--------------------------------
+.js-gsap__scrollbutton {
+    width: 100px;
+    bottom: 15vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .icon {
+        width: 100px;
+        height: 100px;
+        display: flex;
+        transform: translate(0%, -0%);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        span {
+            opacity: 0;
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border: 4px solid global.$color-main-background;
+            border-top: none;
+            border-left: none;
+            transform: rotate(45deg);
+            &:nth-child(1) {}
+            &:nth-child(2) {}
+            &:nth-child(3) {}
+        }
+    }
+    .text {
+        margin: auto;
+        margin-bottom: 0;
+        display: flex;
+    }
+}

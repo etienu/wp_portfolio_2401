@@ -1,0 +1,70 @@
+@use "../../global" as global;
+//--------------------------------
+//  アイコンに関するもの
+//  サイズは外部で操作できるように
+//--------------------------------
+.c-icon {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    aspect-ratio: 1/1;
+    font-size: 40px;
+    width: 40px;
+    margin-bottom: 16px;
+    text-align: center;
+    &.circle {
+        border-radius: 50%;
+    }
+    &.twitter {
+        background-color: #1688DF;
+        border-color: #1688DF;
+        &:hover {}
+    }
+    //  色関連
+    &.basis--grayscale {
+        &:not(:hover) {
+            background-color: gray;
+            border-color: gray;
+        }
+    }
+    //  サイズ関連
+    &.s60 {
+        font-size: 36px;
+        width: 60px;
+    }
+    &.s80 {
+        font-size: 48px;
+        width: 80px;
+    }
+}
+
+.c-icon__hover {
+    transition: 0.3s;
+    &:hover {
+        cursor: pointer;
+        transform: scale( 1.1);
+        .c-icon__covertext {
+            opacity: 1;
+        }
+    }
+}
+
+.c-icon__border {
+    color: global.$color-black;
+    background-color: transparent;
+    border: 2px solid transparent;
+    border-color: global.$color-black;
+}
+
+.c-icon__covertext {
+    position: absolute;
+    color: black;
+    bottom: -0.5em;
+    text-shadow: 1px 1px 0 #FFF, -1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px -1px 0 #FFF, 0px 1px 0 #FFF, 0-1px 0 #FFF, -1px 0 0 #FFF, 1px 0 0 #FFF;
+    font-size: 20px;
+    transition: 0.3s;
+    opacity: 0;
+}

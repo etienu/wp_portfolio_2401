@@ -1,0 +1,69 @@
+@use "../../global" as global;
+
+/*--------------------------------------------------
+    トップに戻る
+--------------------------------------------------*/
+
+.js-gotoTop__Wrapper {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    right: 0px;
+    bottom: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    z-index: 100;
+}
+
+//  表示/非表示処理はjs
+.js-gotoTop {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    right: 0px;
+    bottom: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: global.$color-accent;
+    z-index: 100;
+    transition: 0.3s;
+    opacity: 1;
+    cursor: pointer;
+    &.show {}
+    &.hide {
+        pointer-events: none;
+        opacity: 0;
+    }
+    &:hover {
+        transform: translate(0, -2px);
+        -webkit-filter: drop-shadow(rgba(0, 0, 0, 4) 0px 1px 2px);
+        background-color: global.$color-white;
+        .js-gotoTop__icon {
+            filter: invert(80%);
+        }
+    }
+    @include global.mq('sp') {
+        right: 10px;
+        bottom: 4px;
+        &:hover {
+            bottom: 10px;
+        }
+    }
+}
+
+.js-gotoTop__icon {
+    position: relative;
+    display: block;
+    width: 40px;
+    height: 40px;
+    text-decoration: none;
+    filter: invert(0%);
+    transition: 0.3s;
+    //
+    font-size: 25px;
+    color: #fff;
+    margin: auto;
+}

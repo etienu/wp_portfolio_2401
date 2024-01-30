@@ -1,0 +1,144 @@
+@use "../../global" as global;
+//
+$color_primary: #3B69FF;
+$color_primary_light:#3B69FF; // #80cbc4;
+$color_primary_dark: #00695c;
+//
+input[type="checkbox"] {
+    &+.c-form__check-icon {
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        box-sizing: border-box;
+        width: 30px;
+        height: 30px;
+        margin-top: -.25em;
+        transition: all 0.2s ease-out;
+        &:before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            content: "";
+            display: inline-block;
+            box-sizing: border-box;
+            width: 30px;
+            height: 30px;
+            border: 1px solid #707070;
+            background: white;
+            box-shadow: none;
+            transition: all 0.1s ease-out;
+        }
+    }
+    //  チェックされた時のチェックマーク
+    &:checked {
+        &+.c-form__check-icon {
+            position: relative;
+            //  このマークのみafterにして枠と別にする
+            &:after {
+                position: absolute;
+                content: "";
+                top: -4px;
+                left: 8px;
+                width: 16px;
+                height: 30px;
+                border-bottom: 4px solid red;
+                border-right: 4px solid red;
+                transform: rotate(45deg);
+            }
+        }
+    }
+}
+
+fieldset {
+    border-style: none;
+}
+
+//  ラベルのポインタ表示
+label {
+    display: inline-block;
+    margin-right: 1em;
+}
+
+// display : none 以外でinput要素を非表示にしています
+input[type="radio"],
+input[type="checkbox"] {
+    -moz-opacity: 0;
+    opacity: 0;
+    -webkit-appearance: none;
+    appearance: none;
+    position: absolute;
+}
+
+input[type="radio"] {
+    //  inputでかつクラスがついている時
+    &+.c-form__radio-icon {
+        position: relative;
+        vertical-align: middle;
+        display: inline-block;
+        box-sizing: border-box;
+        width: 12px;
+        height: 12px;
+        margin-top: -.2em;
+        margin-right: 0.5em;
+        margin-left: 4px;
+        border-radius: 50%;
+        border: 1px solid #707070;
+        background: #fff;
+        box-shadow: none;
+        transition: all 0.2s ease-out;
+    }
+    //  無効の時
+    &:disabled {
+        &+.c-form__radio-icon {
+            background: #ddd;
+            border: none;
+        }
+    }
+    //アクティブ
+    &:active {
+        &+.c-form__radio-icon {
+            background: #4973FF33;
+        }
+    }
+    //  フォーカスがある時
+    &:focus {
+        &+.c-form__radio-icon {
+            border: 1px solid $color_primary_light;
+            background: $color_primary_light;
+            box-shadow: 0 0 3px 1px $color_primary_light;
+        }
+    }
+    //  チェックされている時
+    &:checked {
+        &+.c-form__radio-icon {
+            background: #fff;
+            position: relative;
+            &:after {
+                display: block;
+                position: absolute;
+                width: 0px;
+                height: 0px;
+                top: 2px;
+                left: 2px;
+                content: "";
+                border: 3px solid $color_primary;
+                border-radius: 50%;
+            }
+        }
+    }
+}
+
+//  ラベルに対してホバーした時( 上記inputより優先度低い )
+label:hover .c-form__radio-icon {
+    //  枠・内を単色に変える
+    box-shadow: 0 0 3px 1px $color_primary_light;
+}
+
+// 付与 - 警告枠required
+.c-form__border-required {
+    border: 1px solid red;
+}
+
+.c-form__border-normal {
+    border: 1px solid #888888;
+}

@@ -1,0 +1,166 @@
+@use "../../global" as global;
+//----------------------------------------
+//   ロゴ
+//----------------------------------------
+.p-header__logo-wrapper {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 24px;
+    line-height: 1.0;
+    h1 {
+        font-size: 24px;
+    }
+    div{
+        font-size: 24px;
+    }
+}
+
+//----------------------------------------
+//   ヘッダーロゴ
+//----------------------------------------
+.p-header__logo {
+    display: flex;
+    align-items: center;
+    font-family: global.$baseFont;
+    margin: auto 0px auto 16px;
+    text-shadow: 0px 0px 4px rgba(0, 0, 0, 1);
+    transition: 0.3s;
+    img {
+        color: global.$color-font-w;
+        object-fit: cover;
+        width: auto;
+        height: auto;
+    }
+    &:hover {
+        text-shadow: 0px 0px 16px rgba(0, 0, 0, 1);
+    }
+}
+
+//----------------------------------------
+//   ナビメニュー
+//----------------------------------------
+.p-header__nav {
+    display: flex;
+    flex-direction: row;
+    $bgcol: global.$color-accent;
+    margin-right: clamp(0px, 2vw, 40px);
+    ul {
+        display: flex;
+        flex-direction: row;
+        margin: auto;
+        li {
+            font-weight: bold;
+            font-size: clamp(14px, 2vw, 18px);
+            margin: auto clamp( 10px, 1vw, 20px);
+            transition: color 0.3s;
+            position: relative;
+            span[data-parts="boxlt"],
+            span[data-parts="boxrb"] {
+                content: "";
+                position: absolute;
+                width: 12px;
+                height: 12px;
+                display: flex;
+                align-items: center;
+                background-color: lightgreen;
+                //border: 2px solid white;
+                transition: 0.3s;
+                opacity: 0;
+            }
+            span[data-parts="boxlt"] {
+                left: -16px;
+                bottom: 0;
+            }
+            span[data-parts="boxrb"] {
+                right: -16px;
+                bottom: 0;
+            }
+            a {
+                &:after {
+                    content: "";
+                    position: absolute;
+                    left: -10%;
+                    border-bottom: 4px solid $bgcol;
+                    border-radius: 4px;
+                    width: 0;
+                    height: 100%;
+                    transition: 0.3s;
+                    opacity: 0;
+                }
+            }
+            &:hover {
+                transform: translate( 0, 2px);
+                a {
+                    &:after {
+                        width: 120%;
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+}
+
+//----------------------------------------
+//   ボタン
+//----------------------------------------
+.p-header__button {
+    width: clamp( 100px, 12vw, 160px);
+    height: 100%;
+    background-color: global.$color-button-contact;
+    font-family : global.$font-NotoSansJP;
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    i {
+        font-size: 40px;
+    }
+    &:hover {
+        cursor: pointer;
+        background-color: global.$color-main-cv;
+        box-shadow: 0 0 16px rgba(0, 0, 0, 1);
+    }
+    overflow:hidden;
+    &:after {
+        content: '';
+        position: absolute;
+        top: -100%;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(100deg, rgba(255, 255, 255, 0) 80%, rgba(255, 255, 255, 1) 100%, rgba(255, 255, 255, 0) 0%);
+        //  アニメーション
+        animation-name: shiny;
+        animation-duration: 6s;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+    }
+}
+
+//  ボタンのキラキラ
+@keyframes shiny {
+    0% {
+        transform: scale(0) rotate(25deg);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1) rotate(25deg);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(50) rotate(25deg);
+        opacity: 0;
+    }
+}
+
+//  レスポンシブ
+@include global.mq('sp') {
+    .p-header__nav {
+        display: none;
+    }
+}

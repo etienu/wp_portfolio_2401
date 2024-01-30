@@ -1,0 +1,81 @@
+@use "../../global" as global;
+
+/*--------------------------------------------------
+    u-display.scss
+    表示のON/OFF
+--------------------------------------------------*/
+
+.u-display__sp {
+    @include global.mq('tab-pc') {
+        display: none !important;
+    }
+}
+
+.u-display__pc {
+    @include global.mq('sp-tab') {
+        display: none !important;
+    }
+}
+
+.u-display__tab {
+    @include global.mq('sp') {
+        display: none !important;
+    }
+    @include global.mq('pc') {
+        display: none !important;
+    }
+}
+
+.u-display__tab-pc {
+    @include global.mq('sp') {
+        display: none !important;
+    }
+}
+
+.u-display__sp-tab {
+    @include global.mq('pc') {
+        display: none !important;
+    }
+}
+
+.u-hidden__sp {
+    @include global.mq('sp') {
+        display: none !important;
+    }
+}
+
+.u-hidden__pc {
+    @include global.mq('pc') {
+        display: none !important;
+    }
+}
+
+.u-hidden__pc2 {
+    @include global.mq('pc2') {
+        display: none !important;
+    }
+}
+
+.u-hidden__tab {
+    @include global.mq('tab') {
+        display: none !important;
+    }
+}
+
+.u-hidden__tab-pc {
+    @include global.mq('tab-pc') {
+        display: none !important;
+    }
+}
+
+.u-hidden__sp-tab {
+    @include global.mq('sp-tab') {
+        display: none !important;
+    }
+}
+
+.u-hidden__sp-tab2 {
+    @include global.mq('sp-tab2') {
+        display: none !important;
+    }
+}

@@ -1,0 +1,137 @@
+@use "../global" as global;
+
+//--------------------------------------------------
+//    フッター
+//--------------------------------------------------
+
+.l-footer {
+    position: relative;
+    color: global.$color-font-w;
+    width: 100%;
+    //background-color : white;
+    @include global.mq('sp') {
+        width: 100%;
+    }
+}
+
+.l-footer__background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-image: url(../images/contact/contact2.jpg);
+    opacity: 1;
+    bottom : 0;
+    background-size:cover;
+    background-position: top;//center;
+    z-index: -1;
+    filter:brightness(1) sepia(0.5);
+}
+
+.l-footer__topspace {
+    width: 100%;
+//    height: 224px;
+}
+
+.l-footer__inner {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: auto;
+    padding: 20px 0px 0px;
+    padding-top: 224px;
+
+    //background-color : white;
+}
+
+.l-footer__contents {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    width: 100%;
+    padding: 20px 80px;
+    //padding: 40px 80px;
+    //border-radius: 20px;
+
+    background-color : global.$color-main-background;
+    //background-color : lightgreen;//global.$color-main-background;
+    //background-color : white;
+}
+
+.l-footer__items {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    @include global.mq('sp') {
+        flex-direction: column;
+        .l-footer__item {
+            &:nth-child(n+2) {
+                margin-top: 20px;
+            }
+        }
+    }
+}
+
+.l-footer__item {
+    font-size: 14px;
+    margin: 0 20px;
+    a {
+        transition: 0.3s;
+        text-decoration: underline;
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+}
+
+.l-footer__copyright {
+    color: global.$color-font-w;
+    font-weight: bold;
+    font-family: global.$font-NotoSansJP;
+    @extend .l-footer__item;
+}
+
+.l-footer__terms {
+    @extend .l-footer__item;
+}
+
+.l-footer__privacy-policy {
+    @extend .l-footer__item;
+}
+
+.l-footer__contact {
+    @extend .l-footer__item;
+}
+
+
+
+//--------------------------------------------------
+//    レスポンシブ
+//--------------------------------------------------
+@include global.mq('tab-pc') {
+    .l-footer__topspace {
+    }
+    
+    .l-footer__inner {
+        width: 100%;
+    }
+    .l-footer__contents {
+        width: 100%;
+        //max-width: min( calc(100% - 40px), 800px );
+    }
+}
+
+
+@include global.mq('sp') {
+    .l-footer__contents {
+        //width: calc(100% - 40px );
+        padding: 40px 0px;
+        flex-wrap: wrap;
+    }
+    .l-footer__background {
+        //background-position-x: left;
+        //background-position-y: top;
+        //background-size: 200%;
+        
+    }    
+
+}   

@@ -1,0 +1,122 @@
+/*============================================================
+#   variables
+#   変数
+============================================================*/
+
+//  基本となるコンテンツ幅
+$layout-width-inner:1280px;
+//
+//  サイズ指定
+//  左右並べる場合
+$layout-sidebar-width: calc(27.27%);
+$layout-mainbar-width: calc(100% - $layout-sidebar-width);
+//------------------------------------------------------------
+//Font
+//------------------------------------------------------------
+/*
+$baseFont: '游ゴシック',
+'游ゴシック Medium',
+'Yu Gothic Medium',
+'Yu Gothic',
+'ヒラギノ角ゴ Pro W3',
+'Hiragino Kaku Gothic Pro',
+'メイリオ',
+'Meiryo';
+*/
+//
+$baseSpFont: '游ゴシック',
+'ヒラギノ角ゴ Pro W3',
+'Hiragino Kaku Gothic Pro',
+'メイリオ',
+'Meiryo',
+'arial';
+
+//
+$numberFont: 'Roboto', sans-serif;
+$font-roboto: 'Roboto', sans-serif;
+$font-NotoSerifJP: 'Noto Serif JP', sans-serif;
+$font-NotoSansJP: 'Noto Sans JP', sans-serif;
+
+//$font-title: $font-roboto;
+$font-lead: $font-roboto;
+$font-title: $font-NotoSansJP;
+$font-en: $font-roboto;
+//$font-lead: $font-NotoSansJP;
+$baseFont : $font-NotoSansJP;
+//--------------------------------------------
+//  フォントサイズ
+//--------------------------------------------
+//  和文
+$size-font-h1-jp:32px;
+$size-font-h2-jp:28px;
+$size-font-h3-jp:20px;
+$size-font-h4-jp:16px;
+$size-font-h5-jp:12px;
+//  英文
+$size-font-h1-en:38px;
+$size-font-h2-en:36px;
+$size-font-h3-en:20px;
+$size-font-h4-en:18px;
+$size-font-h5-en:14px;
+
+/*==========================================================================
+box shadow
+box-shadowジェネレータ https://www.bad-company.jp/box-shadow
+==========================================================================*/
+
+$shadow_color: #ccc; //影の色
+$shadowNormalLv1: 0 5px 20px $shadow_color;
+$shadowNormalLv2: 0 10px 25px 0 $shadow_color;
+$shadowAquaLv1: 0 5px 20px rgba(94, 135, 178, 0.4);
+$shadowAquaLv2: 0 10px 25px 0 rgba(94, 135, 178, 0.4);
+$shadowAquaLv3: 0 15px 25px 5px rgba(94, 135, 178, 0.4);
+
+/*==========================================================================
+Line Height
+==========================================================================*/
+
+$lineLv1: 1.4;
+$lineLv2: 1.5;
+$lineLv3: 1.75;
+$lineLv4: 2.0;
+
+/*==========================================================================
+Easing
+Easingの動きが一覧でわかるチートシート https://easings.net/ja
+Easingジェネレーター https://easings.co/
+==========================================================================*/
+
+// sine
+$easeInSine: cubic-bezier(0.47, 0, 0.745, 0.715);
+$easeOutSine: cubic-bezier(0.39, 0.575, 0.565, 1);
+$easeInOutSine: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+// quad
+$easeInQuad: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+$easeOutQuad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+$easeInOutQuad: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+// cubic
+$easeInCubic: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+$easeOutCubic: cubic-bezier(0.215, 0.61, 0.355, 1);
+$easeInOutCubic: cubic-bezier(0.645, 0.045, 0.355, 1);
+// quart
+$easeInQuart: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+$easeOutQuart: cubic-bezier(0.165, 0.84, 0.44, 1);
+$easeInOutQuart: cubic-bezier(0.77, 0, 0.175, 1);
+// quint
+$easeInQuint: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+$easeOutQuint: cubic-bezier(0.23, 1, 0.32, 1);
+$easeInOutQuint: cubic-bezier(0.86, 0, 0.07, 1);
+// expo
+$easeInExpo: cubic-bezier(0.95, 0.05, 0.795, 0.035);
+$easeOutExpo: cubic-bezier(0.19, 1, 0.22, 1);
+$easeInOutExpo: cubic-bezier(1, 0, 0, 1);
+// circ
+$easeInCirc: cubic-bezier(0.6, 0.04, 0.98, 0.335);
+$easeOutCirc: cubic-bezier(0.075, 0.82, 0.165, 1);
+$easeInOutCirc: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+// back
+$easeInBack: cubic-bezier(0.6, -0.28, 0.735, 0.045);
+$easeOutBack: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+$easeInOutBack: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+// original（サンプル）
+$originalEasing: cubic-bezier(0.215, 0.61, 0.355, 1);

@@ -1,0 +1,51 @@
+@charset "UTF8";
+@use "../global" as global;
+
+/*--------------------------------------------------
+# 全体
+// 参考
+// 游ゴシックのfont-family指定方法！@font-faceは絶対NG！WindowsのChromeでかすれる問題徹底検証
+// https://wemo.tech/1155
+--------------------------------------------------*/
+
+//    iOSのランドスケープでテキストが調整されないようにする
+ :where(html) {
+    -webkit-text-size-adjust: none;
+}
+
+//  参考
+body {
+    overflow-y: auto;
+    width: 100%;
+    text-align: center;
+    overflow-wrap: break-word; //  自動改行
+    font-family: global.$baseFont; 
+    font-size: 16px;
+    font-weight: 500; //  游ゴシック対策
+    color: global.$color-font;
+    line-height: 1.6875;
+    background-color: global.$color-white;
+    //iphone対策？
+    -webkit-appearance: none;
+    -webkit-text-size-adjust: 100%;
+}
+
+#body-css {
+    overflow: scroll;
+    height: 100px;
+    border: 1px solid black;
+}
+/*
+img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+*/
+a,span {
+    display: inline-block;
+}
+
+picutre{
+    display : block;
+}

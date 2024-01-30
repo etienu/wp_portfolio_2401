@@ -1,0 +1,16 @@
+@use "../../global" as global;
+//--------------------------------
+//  リンク先位置調整アンカー
+//  u-はあくまで、既にあるもののプロパティ調整なのでc-で作る
+//--------------------------------
+.c-anchor {}
+
+.c-anchor__t-40 {
+    position: absolute;
+    margin-top: -40px;
+}
+
+.c-anchor__t-100 {
+    position: absolute;
+    margin-top: -100px;
+}

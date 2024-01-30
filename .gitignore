@@ -1,0 +1,7 @@
+node_modules/
+package-lock.json
+readme.txt
+screenshot.jpg
+style.css
+assets/php/inc/pass.php
+src/js/mylib/content/common.js

@@ -1,0 +1,280 @@
+//--------------------------------------------------
+//
+//    ヒーローセクション
+//
+//
+//
+//--------------------------------------------------
+@use "../global" as global;
+
+.l-hero {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.l-hero__inner {
+    position: relative;
+    width: 100%;
+    max-width: clamp( 335px, 65vw, 800px );
+    height: 109lvh; //  隙間対策で1vh減らす
+    min-height : 600px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    z-index: 10;
+    //  div : パーティクル用
+    [data-eff="mv_particle"]{
+        position : absolute;
+        //  wh 10vw
+        //margin-left: -12vw;
+        //margin-top : -13vw;
+        //  wh 1vw
+        margin-left: 0vw;
+        margin-top : -5vw;
+
+        .particle{
+            //transition : background-color 0.3s;
+            //border:1px solid red;
+            width: 2vw;
+            height:2vw;
+            position: absolute;
+            //background-color: gold;//lightgreen;
+            background-color:lightgreen;
+            //background-color:white;
+            transform-origin: 50% 50%;
+            //margin-left: -50%;
+            //margin-top: -50%;
+            //top: 0;
+            //left: 0;
+            //mix-blend-mode: screen;
+            border-radius: 50%;
+        }
+    }
+}
+
+
+.l-hero__background-boader {
+    position: absolute;
+    width: 100%;
+    height: 110lvh;
+    min-height : 600px;
+    background-color: lightgreen;
+    opacity: 1;
+    background-size: cover;
+    background-position: center;
+    z-index: 5;
+    clip-path: polygon(0 calc(100% - 5vw), 100% calc(100% - 10vw), 100% calc(100% - 7vw), 0 calc(100% - 2vw));
+}
+
+.l-hero__background-boader__white {
+    position: absolute;
+    width: 100%;
+    height: 110lvh;
+    min-height : 600px;
+    background-color: white;
+    opacity: 1;
+    background-size: cover;
+    background-position: center;
+    z-index: 5;
+    clip-path: polygon(0 calc(100% - 2.1vw), 100% calc(100% - 7.1vw), 100% calc(100% - 0vw), 0% calc(100% - 0vw));
+}
+
+//  単発でしかないのでLayoutで作る
+.l-hero__background {
+    position: absolute;
+    &.hide {
+        display: none;
+    }
+    width: 100%;
+    height: 110lvh;
+    min-height : 600px;
+    background-color : gray;//goldenrod;
+    background-image: url(../images/hero/frontpage_hero.jpg);
+    background-size: cover;
+    background-position: center;
+    opacity: 1;
+    //  スマホアニメガクガク対策
+    will-change: transform, opacity;
+    transform: translate3d(0,0,0);
+    transform: translateZ(0);
+    backface-visibility: hidden;
+
+    z-index: 2;
+}
+
+.l-hero__heading {
+    width: 100%;
+    height: 80px;
+    position: relative;
+    cursor : pointer;
+    transition : transform 0.3s, filter 0.3s;
+    user-select: none;
+    //&:hover{
+    //    transform : scale( 1.05 );
+    //}
+    //  [考え方] 全ての以下div要素に対して
+    //  画面中央を中心に文章を表示したい。
+    //  アニメーションで上下の動きがあるが、他の要素には影響を及ぼさない。
+    //  アニメーション専用で背景全体を使用して、かつ文字列中央寄せみたいな
+    //  センター処理をするべきだったかもしれない。
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .worktype{
+        position :absolute;
+        font-size: 20px;
+        left: -20px;
+        top: clamp( -45px, -3.0vw, -10px );
+        text-shadow:  0px 0px 8px #000;
+
+        z-index: 1;
+    }
+    div {
+        position: absolute;
+        white-space: nowrap;
+        font-size: clamp( 32px, 6vw, 80px );
+        font-family : global.$font-NotoSansJP;
+        font-weight: 700;
+        //margin-bottom: 20px;
+        text-shadow: -1px 0px 0px #000, -1px -1px 0px #000, 1px -1px 0px #000, -1px 1px 0px #000, 1px 1px 0px #000, 0px 0px 8px #000;
+    
+        //  指定したtransformはGSAPに含まれるが、
+        //  更に値を上書きして消されている事で
+        //  translate() , translate(); と二重になっている。
+        //  Androidでは問題ないが、
+        //  iPhoneでは最後の指定だけ使用され崩れが発生する。
+        //  とりあえずの対策として、GSAPではyを使わずにmarginTopで移動させる。
+        //-webkit-transform : translate( -50%, -50% );
+        //   -moz-transform : translate( -50%, -50% );
+        //        transform : translate( -50%, -50% );
+        border-radius: 70px;
+        &:nth-child(0) {
+            padding-left: 0.5em;
+        }
+        //  文字パタパタアニメの初期状態
+        span{
+            display: inline-block;  //必須
+            opacity: 0;
+            visibility: visible;
+            transform: rotateY(90deg);
+            //  選択不能
+            user-select: none;
+        }
+    }
+}
+
+.l-hero__sublead {
+    font-size: 16px;
+    color : white;//black;
+    $bgcol : rgba(144,238,144,0.8);
+    $fscol : RGBA(0,60,0,0.2);
+    text-shadow: -1px 0px 0px $fscol, -1px -1px 0px $fscol, 1px -1px 0px $fscol, -1px 1px 0px $fscol, 1px 1px 0px $fscol, 0px 0px 8px $fscol;
+    margin-left: auto;
+    margin-top : 60px;
+    padding: 2px 20px;
+    border-radius : 12px;
+    font-family : global.$font-NotoSansJP;
+    position : relative;
+    span{
+        background:linear-gradient( transparent 60%, $bgcol 60%);
+        background-position : 0 100%;
+        background-size : 0% 100%;
+        background-repeat : no-repeat;
+        //padding : 0 10px;
+        //margin-left : -10px;
+        background-size: 100% 100%;
+//        color : white;
+    }
+/*    
+    &:before{
+        position : absolute;
+        content : "";
+        left: 0;
+        bottom: 10%;
+        width: 100%;
+        height: 40%;
+        background-color : $bgcol;
+        z-index: -1;
+    }
+*/    
+}
+
+
+.l-hero__text {
+    font-size: clamp( 0.5rem, 3vw, 1.5rem);
+    margin-bottom: 30px;
+    color: black;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+
+.l-hero__scrollbuttonwrapper{
+    position : absolute;
+    width: 100%;
+    bottom: 0;
+    margin-bottom : 20%;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+
+//--------------------------------
+//  レスポンシブ
+//--------------------------------
+@include global.mq('sp-tab2') {
+    .l-hero__inner {
+        flex-direction: column;
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+}
+
+@include global.mq('sp') {
+    .l-hero__inner {
+        max-width: calc( 100% - 40px );
+    //  div : パーティクル用
+    [data-eff="mv_particle"]{
+        position : absolute;
+        margin-left: 0vw;
+        margin-top : -130px;
+
+        .particle{
+            width: 30px;
+            height:30px;
+        }
+    }
+
+    }
+    .l-hero__sublead {
+        margin-left:0;
+
+    }
+    .l-hero__background {
+        //  PC絵にしたい場合左寄り
+        //background-position-x: left;
+        //  植木鉢にしたい場合右寄せ
+        //background-position-x: right;
+    }
+    .l-hero__heading {
+        .worktype{
+            left: auto;
+            top: clamp( -80px, -10vw, -50px );
+            font-size: 14px;
+        }
+        .title{
+            padding : 10px 40px;
+        }
+    }
+}
+
+//  320px(iphone)対策
+@include global.mq('ip') {
+    .l-hero__sublead {
+        font-size: 14px;
+    }
+}
